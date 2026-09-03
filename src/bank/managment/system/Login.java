@@ -16,7 +16,6 @@ public class Login extends JFrame implements ActionListener{
         Image i2 = i1.getImage().getScaledInstance(100, 100, Image.SCALE_SMOOTH);
         //We cant place Image directly into JLabel so we convert it back to ImageIcon
         ImageIcon i3 = new ImageIcon(i2);
-        //JLabel label = new JLabel(i1); chatgpt
         JLabel label2 = new JLabel(i3);
         label2.setBounds(70,10,100,100);
         
@@ -62,9 +61,10 @@ public class Login extends JFrame implements ActionListener{
         setSize(600,500);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setTitle("ATM");
-        setLocation(350,200);
+        setLocationRelativeTo(null);
+        setUndecorated(true);
         getContentPane().setBackground(Color.white);
-        //add(label); chatgpt
+       
         add(label2);
         add(text);
         add(cardno);

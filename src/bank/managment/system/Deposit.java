@@ -15,21 +15,27 @@ public class Deposit extends JFrame implements ActionListener{
         this.pinnum = pinnum;
         setLayout(null);
         
-        ImageIcon i1 = new ImageIcon(ClassLoader.getSystemResource("icons/atm2.png"));
-        Image i2 = i1.getImage().getScaledInstance(1550,830, Image.SCALE_SMOOTH);
+        ImageIcon i1 = new ImageIcon(ClassLoader.getSystemResource("icons/atm2.jpeg"));
+        Image i2 = i1.getImage().getScaledInstance(1920,1080, Image.SCALE_SMOOTH);
         ImageIcon i3 = new ImageIcon(i2);
         JLabel image = new JLabel(i3);
-        image.setBounds(0,0,1550,830);
+        image.setBounds(0,0,1920,1080);
         add(image);
         
         JLabel l1 = new JLabel("Enter the amount:");
-        l1.setBounds(555,176,400,35);
-        l1.setFont(new Font("System",Font.BOLD,16));
+        l1.setBounds(660,250,400,35);
+        l1.setFont(new Font("System",Font.BOLD,26));
         l1.setForeground(Color.WHITE);
         image.add(l1);
         
+        JLabel l3 = new JLabel("Maximum Deposit Limit: Rs. 50,000");
+        l3.setBounds(570, 200, 500, 30);
+        l3.setFont(new Font("System", Font.BOLD, 24));
+        l3.setForeground(Color.WHITE);
+        image.add(l3);        
+        
         t1 = new JTextField("");
-        t1.setBounds(512,220,220,25);
+        t1.setBounds(620,300,310,32);
         t1.setFont(new Font("Raleway",Font.BOLD,16));
         t1.setBackground(new Color(65,125,128));
         t1.setForeground(Color.WHITE);
@@ -38,22 +44,26 @@ public class Deposit extends JFrame implements ActionListener{
         b1 = new JButton("Deposit");
         b1.setBackground(new Color(65,125,128));
         b1.setForeground(Color.WHITE);
+        b1.setFont(new Font("Raleway", Font.BOLD,20));
         b1.setFocusable(false);
-        b1.setBounds(700,365,150,35);
+        b1.setBounds(940,470,180,40);
         b1.addActionListener(this);
         image.add(b1);
         
         b2 = new JButton("Back");
         b2.setBackground(new Color(65,125,128));
         b2.setForeground(Color.WHITE);
+        b2.setBounds(940,540,180,40);
         b2.setFocusable(false);
-        b2.setBounds(700,416,150,35);
+        b2.setFont(new Font("Raleway", Font.BOLD,20));
         b2.addActionListener(this);
         image.add(b2);
         
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setTitle("ATM");
-        setSize(1550,1080);
+        setSize(1920,1080);
+        setLocationRelativeTo(null);
+        setUndecorated(true);        
         setVisible(true);
     }
     
@@ -73,7 +83,7 @@ public class Deposit extends JFrame implements ActionListener{
                     JOptionPane.showMessageDialog(null, "Amount must be greater than 0");
                     return;
                 }
-                if(depositAmount > 10000){
+                if(depositAmount > 50000){
                     JOptionPane.showMessageDialog(null,"Maximum deposit amount exceded");
                     return;
                 }

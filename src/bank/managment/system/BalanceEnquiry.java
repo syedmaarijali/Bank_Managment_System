@@ -11,16 +11,17 @@ public class BalanceEnquiry extends JFrame implements ActionListener{
         this.pinnum = pinnum;
         
         setLayout(null);
-        ImageIcon i1 = new ImageIcon(ClassLoader.getSystemResource("icons/atm2.png"));
-        Image i2 = i1.getImage().getScaledInstance(1550,830, Image.SCALE_SMOOTH);
+        ImageIcon i1 = new ImageIcon(ClassLoader.getSystemResource("icons/atm2.jpeg"));
+        Image i2 = i1.getImage().getScaledInstance(1920,1080, Image.SCALE_SMOOTH);
         ImageIcon i3 = new ImageIcon(i2);
         JLabel image = new JLabel(i3);
-        image.setBounds(0,0,1550,830);
+        image.setBounds(0,0,1920,1080);
         add(image);
 
         back = new JButton("Back");
-        back.setBounds(705,410,150,35);
+        back.setBounds(940,540,180,40);
         back.setBackground(new Color(65,125,128));
+        back.setFont(new Font("Raleway", Font.BOLD,20));
         back.setForeground(Color.WHITE);
         back.setFocusable(false);
         back.addActionListener(this);
@@ -47,22 +48,22 @@ public class BalanceEnquiry extends JFrame implements ActionListener{
         
         JLabel l1 = new JLabel("Your current Balance is:");
         l1.setForeground(Color.WHITE);
-        l1.setFont(new Font("System",Font.BOLD,22));
-        l1.setBounds(510,176,400,35);
+        l1.setFont(new Font("System",Font.BOLD,26));
+        l1.setBounds(600,250,400,35);
         image.add(l1);
         
         JLabel l2 = new JLabel("" +balance);
         l2.setForeground(Color.WHITE);
-        l2.setFont(new Font("System",Font.BOLD,22));
-        l2.setBounds(620,222,400,35);
+        l2.setFont(new Font("System",Font.BOLD,26));
+        l2.setBounds(740,300,400,35);
         image.add(l2);
         
         
-        setSize(1550,1080);
+        setSize(1920,1080);
         getContentPane().setBackground(Color.WHITE);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setLocation(0,0);
-        //setUndecorated(true);
+        setLocationRelativeTo(null);
+        setUndecorated(true);
         setTitle("ATM");
         setVisible(true);        
     }

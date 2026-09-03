@@ -4,8 +4,8 @@ import java.awt.event.*;
 import java.util.Random;
 import javax.swing.*;
 import java.sql.*;
-
 import com.toedter.calendar.JDateChooser;
+
 public class SignupOne extends JFrame implements ActionListener{
     int random;
     JTextField nameText,fnameText,emailText,addressText,cityText,stateText,pinText;
@@ -160,7 +160,8 @@ public class SignupOne extends JFrame implements ActionListener{
             
             getContentPane().setBackground(Color.white);
             setSize(850,800);
-            setLocation(350,10);
+            setLocationRelativeTo(null);
+            setUndecorated(true);
             setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
             setVisible(true);
 

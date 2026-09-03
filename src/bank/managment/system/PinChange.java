@@ -14,47 +14,48 @@ public class PinChange extends JFrame implements ActionListener{
         this.pinnum = pinnum;
         
         setLayout(null);
-        ImageIcon i1 = new ImageIcon(ClassLoader.getSystemResource("icons/atm2.png"));
-        Image i2 = i1.getImage().getScaledInstance(1550,830, Image.SCALE_SMOOTH);
+        ImageIcon i1 = new ImageIcon(ClassLoader.getSystemResource("icons/atm2.jpeg"));
+        Image i2 = i1.getImage().getScaledInstance(1920,1080, Image.SCALE_SMOOTH);
         ImageIcon i3 = new ImageIcon(i2);
         JLabel image = new JLabel(i3);
-        image.setBounds(0,0,1550,830);
+        image.setBounds(0,0,1920,1080);
         add(image);
         
         JLabel l1 = new JLabel("Change your PIN");
-        l1.setFont(new Font("System",Font.BOLD,22));
+        l1.setFont(new Font("System",Font.BOLD,26));
         l1.setForeground(Color.WHITE);
-        l1.setBounds(530,180,400,35);
+        l1.setBounds(680,220,400,35);
         image.add(l1);     
         
-        JLabel l2 = new JLabel("Enter newPIN");
+        JLabel l2 = new JLabel("Enter new PIN");
         l2.setFont(new Font("System",Font.BOLD,22));
         l2.setForeground(Color.WHITE);
-        l2.setBounds(410,269,400,35);
+        l2.setBounds(550,320,400,35);
         image.add(l2);   
         
         t1 = new JPasswordField("");
-        t1.setBounds(676,269,180,30);
+        t1.setBounds(800,320,180,30);
         t1.setFont(new Font("Raleway",Font.BOLD,22));
         t1.setBackground(new Color(65,125,128));
         t1.setForeground(Color.WHITE);
         image.add(t1);        
 
-        JLabel l3 = new JLabel("Re-Enter new PIN");
+        JLabel l3 = new JLabel("Re-Enter PIN");
         l3.setFont(new Font("System",Font.BOLD,22));
         l3.setForeground(Color.WHITE);
-        l3.setBounds(410,315,400,35);
+        l3.setBounds(550,370,400,35);
         image.add(l3);   
 
         t2 = new JPasswordField("");
-        t2.setBounds(676,315,180,30);
+        t2.setBounds(800,370,180,30);
         t2.setFont(new Font("Raleway",Font.BOLD,22));
         t2.setBackground(new Color(65,125,128));
         t2.setForeground(Color.WHITE);
         image.add(t2);     
         
         b1 = new JButton("Confirm");
-        b1.setBounds(705,360,150,35);
+        b1.setBounds(940,470,180,40);
+        b1.setFont(new Font("Raleway", Font.BOLD,20));
         b1.setBackground(new Color(65,125,128));
         b1.setForeground(Color.WHITE);
         b1.setFocusable(false);
@@ -62,18 +63,19 @@ public class PinChange extends JFrame implements ActionListener{
         image.add(b1);
         
         b2 = new JButton("Back");
-        b2.setBounds(705,410,150,35);
+        b2.setBounds(940,540,180,40);
+        b2.setFont(new Font("Raleway", Font.BOLD,20));
         b2.setBackground(new Color(65,125,128));
         b2.setForeground(Color.WHITE);
         b2.setFocusable(false);
         b2.addActionListener(this);
         image.add(b2);        
         
-        setSize(1550,1080);
+        setSize(1920,1080);
         getContentPane().setBackground(Color.WHITE);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setLocation(0,0);
-        //setUndecorated(true);
+        setLocationRelativeTo(null);
+        setUndecorated(true);
         setTitle("ATM");
         setVisible(true);
     }

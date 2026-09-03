@@ -2,17 +2,22 @@ package bank.managment.system;
 import javax.swing.*;
 import java.awt.*;
 import java.sql.*;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 
-public class MiniStatment extends JFrame{
- Conn conn = new Conn();
- int balance = 0;
-    MiniStatment(String pinnum) {
+public class MiniStatment extends JFrame {
 
+    Conn conn = new Conn();
+    int balance = 0;
+    private Transactions transactions;
+
+    MiniStatment(String pinnum, Transactions transactions) {
+        this.transactions = transactions;
         JLabel title = new JLabel("Bank of Pakistan");
-title.setFont(new Font("System", Font.BOLD, 22));
-title.setBounds(0, 10, 400, 30);
-title.setHorizontalAlignment(SwingConstants.CENTER);
-add(title);
+        title.setFont(new Font("System", Font.BOLD, 22));
+        title.setBounds(0, 10, 400, 30);
+        title.setHorizontalAlignment(SwingConstants.CENTER);
+        add(title);
         
         JLabel l1 = new JLabel();
         add(l1);
@@ -93,13 +98,22 @@ add(title);
 
         setSize(400, 500);
         getContentPane().setBackground(Color.WHITE);
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setLocation(540, 160);
+        setLocationRelativeTo(null);
         setTitle("Mini Statement");
+        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setVisible(true);
-    }
+        
 
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            @Override
+            public void windowClosing(java.awt.event.WindowEvent e) {
+                transactions.setVisible(true);
+            }
+        });
+    }
     public static void main(String[] args){
-        new MiniStatment("");
+        Transactions t = new Transactions("");
+        t.setVisible(false);
+        new MiniStatment("",t);
     }
 }
